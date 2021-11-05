@@ -1,0 +1,77 @@
+/* NOTE: Please provide a function called "decode" with a string parameter "payload" */
+
+
+function decode(payload) {
+  console.log(payload)
+  if (typeof payload == "string")
+    payload = JSON.parse(payload);																		                //transforma a string em obj
+    
+  var data = payload;      																			                     //var para acessar o data do payload
+	if(typeof payload == 'object') {
+    data = payload.data;
+		}else {
+    payload = {data: payload};
+		}
+  var dataSplit = data.split(/([0-9A-Fa-f]{4})/).filter(x => x);                    //cria array com itens de 4 elementos -- 6 grupos
+ 
+  dataSplit.map((hexa, index) => {
+    console.log(hexa);
+    
+    var arrayOfDigitsTemp = Array.from(String(hexa), String);
+    
+    const rotateTemp = (arrTemp, count = 1) => {                                      //function that rotates LSB and MSB
+    return [...arrTemp.slice(count, arrTemp.length), ...arrTemp.slice(0, count)];     //function that rotates LSB and MSB
+       };                                                                           //function that rotates LSB and MSB
+    var arrTemp =arrayOfDigitsTemp ;                                                //get vector with the first 4 date elements
+    var reverseHexa = rotateTemp(arrTemp, -2).join('');                             //rotating the LSB and MSB
+      
+      console.log(reverseHexa);
+      var convertedHexa = parseInt(reverseHexa, 16);  						              	//converte de hex para numérico
+     
+      switch (index) {
+          case 0:
+           		var tempConvert = convertedHexa / 100; 							            	//divide por 100 para precisão unidade em °Celcius
+          		payload.temp = tempConvert;
+              console.log("t0", tempConvert)
+              break;
+          case 1:
+              var pressConvert = convertedHexa / 1000; 						          	//divide por 1000 para precisão, unidade em MEGAPascal
+          		payload.press = pressConvert;
+              console.log("t1", pressConvert)
+              break;
+          case 2:
+              var LumiConvert = convertedHexa / 1000; 					            	//divide por 1000 para precisão unidade em V
+          		payload.Lumi =  LumiConvert;
+              console.log("t2", LumiConvert)
+              break;
+          case 3:
+         		  var XConvert = convertedHexa / 250; 					                	//divide por 250 para precisão unidade em ° graus 
+          		payload.X =  XConvert;
+              console.log("t3", XConvert)
+              break;
+          case 4:
+              var YConvert = convertedHexa / 250; 					                	//divide por 250 para precisão unidade em ° graus 
+          		payload.Y =  YConvert;
+              console.log("t4", YConvert)
+              break;
+          case 5:
+              var ZConvert = convertedHexa / 250; 					                	//divide por 250 para precisão unidade em ° graus 
+          		payload.Z =  ZConvert;
+              console.log("t5", ZConvert)
+              break;
+      }
+  });
+  console.log(payload);
+  
+  payload = JSON.stringify(payload);
+  return payload
+}
+
+ exports.handler = async (event) => {
+   decode(JSON.stringify(event[0].payload))
+ };
+ 
+ 
+ 
+ 
+ 
