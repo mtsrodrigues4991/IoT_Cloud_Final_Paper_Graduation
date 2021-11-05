@@ -1,0 +1,11 @@
+useful links
+
+https://github.com/Thinxtra/Xkit-Sample/blob/master/DemoApp/DemoApp.ino  --cód demo
+https://www.youtube.com/watch?v=dUrls0ldL-8 - callback to aws
+https://aws.amazon.com/blogs/iot/connect-your-devices-to-aws-iot-using-the-sigfox-network/ - callback to aws
+https://support.sigfox.com/docs/microsoft-azure-iot-hub-built-in-callback - callback to azure
+https://www.youtube.com/watch?v=AjB08kUhbOM&t=4044s&ab_channel=TECA-InternetdelasCosas - callback to azure
+https://support.sigfox.com/docs/callbacks-documentation- support and documentation
+https://cloud.google.com/community/tutorials/sigfox-gw -- callback google cloud 1
+https://cloud.google.com/community/tutorials/sigfox-sensit -- callback google cloud 2
+https://www.paessler.com/tools/bitdecoder  - tool to decode payload
