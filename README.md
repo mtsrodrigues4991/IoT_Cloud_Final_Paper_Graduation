@@ -11,3 +11,5 @@ All doc from sigfox for Sigfox DevKit are in the folder "Sigfox DevKit Doc"
 The code used to build the infrastructure in Azure is in the folder "Terraform for Azure"
 
 The Project Architecture are in the folder "Project Architecture"
+
+The demonstration of the project is on the link: https://www.youtube.com/watch?v=DWesvJ7yAVg&t=1s&ab_channel=MateusRodrigues
