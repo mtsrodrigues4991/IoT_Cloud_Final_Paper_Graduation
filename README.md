@@ -1,4 +1,5 @@
-# IoT_Cloud_Final_Paper_Graduation
+# IoT_Cloud
+
 
 All code used to build the IoT are in the folder "Arduino Cod"
 
